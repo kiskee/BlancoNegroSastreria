@@ -14,7 +14,7 @@ describe('Header Component', () => {
   it('renders the logo', () => {
     render(<Header />)
     
-    expect(screen.getByText('BLANCO Y NEGRO2222')).toBeInTheDocument()
+    expect(screen.getByText('BLANCO Y NEGRO')).toBeInTheDocument()
     expect(screen.getByText('SASTRERÍA')).toBeInTheDocument()
   })
 
