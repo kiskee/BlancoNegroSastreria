@@ -1,0 +1,3 @@
+# Validaciones básicas antes del commit
+npm run lint
+npm run type-check

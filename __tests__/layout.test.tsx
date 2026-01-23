@@ -40,6 +40,7 @@ describe('RootLayout', () => {
   })
 
   it('exports metadata correctly', () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { metadata } = require('../app/layout')
     
     expect(metadata).toBeDefined()

@@ -1,3 +1,4 @@
 {
-  "extends": "next"
+  "extends": "next",
+  "ignorePatterns": ["coverage/**", ".next/**", "node_modules/**", "__tests__/**"]
 }
