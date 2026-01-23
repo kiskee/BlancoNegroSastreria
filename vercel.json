@@ -2,6 +2,5 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "framework": "nextjs",
-  "installCommand": "npm ci",
-  "ignoreCommand": "git log --format=%B -n 1 $VERCEL_GIT_COMMIT_SHA | grep -q '\[skip-vercel\]'"
+  "installCommand": "npm ci"
 }
