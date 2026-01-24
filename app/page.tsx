@@ -1,16 +1,17 @@
 import { Metadata } from "next";
 import Header from "../components/Header";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Blanco y Negro Sastrería - Sitio en Construcción",
+  title: "Blanco y Negro Sastrería - Confección a la Medida",
   description:
-    "Sastrería profesional especializada en trajes y prendas a medida. Sitio web en construcción.",
-  keywords: "sastrería, trajes, medida, confección, profesional",
+    "Sastrería profesional especializada en confección a la medida, reparación y arreglo de todo tipo de prendas de vestir.",
+  keywords: "sastrería, trajes, medida, confección, reparación, arreglos, cortinas, cenefas, sábanas",
 };
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-linear-to-br from-black via-gray-900 to-black relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
       <Header />
 
       {/* Patrón de fondo decorativo */}
@@ -22,45 +23,64 @@ export default function Home() {
       </div>
 
       <div className="relative z-10 min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-8">
-        <div className="text-center space-y-12">
-          {/* Título principal con efectos */}
-          <div className="relative">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-widest">
-              <span className="text-white drop-shadow-2xl">BLANCO</span>
-              <div className="text-white my-4 text-3xl md:text-5xl">&</div>
-              <span className="text-white drop-shadow-2xl">NEGRO</span>
-            </h1>
-            <div className="text-xl md:text-2xl lg:text-3xl mt-6 font-light tracking-[0.4em] text-gray-300">
-              SASTRERÍA
+        <div className="max-w-4xl mx-auto text-center space-y-12">
+          
+          {/* Sección Hero - Cards de valor */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-black bg-opacity-40 backdrop-blur-sm border border-white border-opacity-20 rounded-lg p-6 text-center">
+              <div className="text-3xl mb-3">🏆</div>
+              <h3 className="text-white text-lg font-semibold mb-2">+15 Años</h3>
+              <p className="text-gray-300 text-sm">de experiencia profesional</p>
             </div>
-            {/* Líneas decorativas */}
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-px bg-white opacity-60"></div>
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-px bg-white opacity-60"></div>
-          </div>
-
-          {/* Sección de construcción */}
-          <div className="mt-16">
-            <div className="bg-black bg-opacity-60 backdrop-blur-sm border border-white border-opacity-30 rounded-lg p-6 max-w-md mx-auto">
-              <p className="text-lg md:text-xl text-white font-light tracking-wide mb-4">
-                SITIO BAJO CONSTRUCCIÓN
-              </p>
-              <div className="flex justify-center space-x-2 mb-4">
-                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                <div
-                  className="w-2 h-2 bg-white rounded-full animate-pulse"
-                  style={{ animationDelay: "0.2s" }}
-                ></div>
-                <div
-                  className="w-2 h-2 bg-white rounded-full animate-pulse"
-                  style={{ animationDelay: "0.4s" }}
-                ></div>
-              </div>
-              <div className="w-20 h-px bg-white mx-auto opacity-80"></div>
+            
+            <div className="bg-black bg-opacity-40 backdrop-blur-sm border border-white border-opacity-20 rounded-lg p-6 text-center">
+              <div className="text-3xl mb-3">✨</div>
+              <h3 className="text-white text-lg font-semibold mb-2">Calidad Premium</h3>
+              <p className="text-gray-300 text-sm">Materiales de primera y acabados perfectos</p>
+            </div>
+            
+            <div className="bg-black bg-opacity-40 backdrop-blur-sm border border-white border-opacity-20 rounded-lg p-6 text-center">
+              <div className="text-3xl mb-3">🕰️</div>
+              <h3 className="text-white text-lg font-semibold mb-2">Entrega Puntual</h3>
+              <p className="text-gray-300 text-sm">Cumplimos con los tiempos acordados</p>
             </div>
           </div>
 
-          {/* Elementos decorativos adicionales */}
-          <div className="flex justify-center space-x-8 mt-12">
+          {/* Call to Action - Servicios */}
+          <div className="bg-black bg-opacity-60 backdrop-blur-sm border border-white border-opacity-30 rounded-lg p-8 max-w-2xl mx-auto">
+            <h2 className="text-2xl md:text-3xl text-white font-light tracking-wide mb-6">
+              SERVICIOS PROFESIONALES
+            </h2>
+            <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+              Descubre nuestra amplia gama de servicios especializados en confección, reparación y arreglos de prendas.
+            </p>
+            <Link 
+              href="/servicios"
+              className="inline-block bg-white text-black px-8 py-4 rounded-lg font-semibold tracking-wide hover:bg-gray-200 transition-all duration-300 hover:scale-105 shadow-lg"
+            >
+              VER TODOS LOS SERVICIOS
+            </Link>
+          </div>
+
+          {/* Contacto WhatsApp */}
+          <div className="bg-black bg-opacity-40 backdrop-blur-sm border border-white border-opacity-20 rounded-lg p-6 max-w-md mx-auto">
+            <p className="text-white text-lg font-light tracking-wide mb-4">
+              CONTACTO DIRECTO
+            </p>
+            <a 
+              href="https://wa.me/573003268025" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-3 text-white hover:text-gray-300 transition-colors duration-300"
+            >
+              <span className="text-2xl">📱</span>
+              <span className="text-xl md:text-2xl font-light tracking-wider">300 326 8025</span>
+            </a>
+            <div className="w-20 h-px bg-white mx-auto opacity-80 mt-4"></div>
+          </div>
+
+          {/* Elementos decorativos */}
+          <div className="flex justify-center space-x-8">
             <div className="w-px h-12 bg-white opacity-40"></div>
             <div className="w-px h-8 bg-white opacity-60"></div>
             <div className="w-px h-16 bg-white opacity-30"></div>
