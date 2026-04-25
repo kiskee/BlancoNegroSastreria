@@ -8,7 +8,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu"
-import Logo from '../public/logi.png'
 import { Menu } from "lucide-react"
 import Link from "next/link"
 
@@ -26,7 +25,7 @@ export default function Header2() {
           <Link href="/" className="flex items-center">
             <div className="w-15 h-15 rounded-full overflow-hidden shadow-md mr-3 shrink-0 shadow-violet-600">
               <Image
-                src={Logo}
+                src="/logi.png"
                 alt="Logo"
                 width={60}
                 height={60}
