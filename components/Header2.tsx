@@ -22,7 +22,16 @@ export default function Header2() {
         <div className="flex justify-between items-center mx-auto max-w-7xl">
 
           {/* LOGO */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-3">
+            
+            <div className="text-left">
+              <div className="text-white font-semibold text-lg tracking-[0.25em] leading-tight">
+                BLANCO & NEGRO
+              </div>
+              <div className="text-white/60 text-[10px] tracking-[0.4em] font-light mt-1 text-center">
+                SASTRERÍA
+              </div>
+            </div>
             <div className="w-15 h-15 rounded-full overflow-hidden shadow-md mr-3 shrink-0 shadow-violet-600">
               <Image
                 src="/logi.png"
@@ -31,15 +40,6 @@ export default function Header2() {
                 height={60}
                 className="object-cover w-full h-full"
               />
-            </div>
-            <div className="text-left">
-              <div className="text-white font-semibold text-lg tracking-[0.25em] leading-tight">
-                BLANCO Y NEGRO
-              </div>
-              <div className="text-white/60 text-[10px] tracking-[0.4em] font-light mt-1">
-                SASTRERÍA
-              </div>
-              <div className="w-8 h-px bg-white/30 mt-2"></div>
             </div>
           </Link>
 
