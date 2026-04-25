@@ -12,6 +12,12 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Migrated from .eslintignore
+    "__tests__/**",
+    "coverage/**",
+    "node_modules/**",
+    "*.config.js",
+    "jest.setup.js",
   ]),
 ]);
 

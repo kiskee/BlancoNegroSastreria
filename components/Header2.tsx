@@ -1,4 +1,6 @@
 "use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import {
   DropdownMenu,
@@ -6,76 +8,107 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu"
-
+import Logo from '../public/logi.png'
 import { Menu } from "lucide-react"
+import Link from "next/link"
 
 export default function Header2() {
+  const [open, setOpen] = useState(false)
+
+  const handleClose = () => setOpen(false)
+
   return (
     <header>
-      <nav className="px-4 lg:px-6 py-2.5  border-violet-400">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          
-          {/* Logo */}
-          <a href="#" className="flex items-center">
-            <Image
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="mr-3 h-6 sm:h-9"
-              alt="Logo"
-              width={36}
-              height={36}
-            />
-            <div className="text-left pt-2">
-              <div className="text-white font-bold text-xl tracking-wider leading-tight">
+      <nav className="px-6 lg:px-12 py-4 bg-black/70 backdrop-blur-md border-b border-white/10">
+        <div className="flex justify-between items-center mx-auto max-w-7xl">
+
+          {/* LOGO */}
+          <Link href="/" className="flex items-center">
+            <div className="w-15 h-15 rounded-full overflow-hidden shadow-md mr-3 shrink-0 shadow-violet-600">
+              <Image
+                src={Logo}
+                alt="Logo"
+                width={60}
+                height={60}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <div className="text-left">
+              <div className="text-white font-semibold text-lg tracking-[0.25em] leading-tight">
                 BLANCO Y NEGRO
               </div>
-              <div className="text-white text-xs tracking-[0.3em] font-light mt-1">
+              <div className="text-white/60 text-[10px] tracking-[0.4em] font-light mt-1">
                 SASTRERÍA
               </div>
+              <div className="w-8 h-px bg-white/30 mt-2"></div>
             </div>
-          </a>
+          </Link>
 
           {/* MENU DESKTOP */}
-          <div className="hidden md:flex md:items-center">
-            <ul className="flex flex-row space-x-8 font-medium">
+          <div className="hidden md:flex items-center">
+            <ul className="flex space-x-10 font-medium">
               <li>
-                <a href="#" className="text-white bg-transparent">
+                <Link
+                  href="/"
+                  className="text-white/80 hover:text-white transition-colors duration-200"
+                >
                   Inicio
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-white bg-transparent">
+                <Link
+                  href="/servicios"
+                  className="text-white/80 hover:text-white transition-colors duration-200"
+                >
                   Servicios
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-white bg-transparent">
+                <Link
+                  href="/contacto"
+                  className="text-white/80 hover:text-white transition-colors duration-200"
+                >
                   Contacto
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* MENU MOBILE (Dropdown) */}
+          {/* MENU MOBILE */}
           <div className="md:hidden">
-            <DropdownMenu>
+            <DropdownMenu open={open} onOpenChange={setOpen}>
               <DropdownMenuTrigger asChild>
-                <button className="text-white bg-transparent">
-                  <Menu size={24} />
+                <button className="text-white/80 hover:text-white transition-colors">
+                  <Menu size={22} />
                 </button>
               </DropdownMenuTrigger>
 
-              <DropdownMenuContent className="bg-transparent border-none shadow-none">
-                <DropdownMenuItem className="text-white bg-transparent focus:bg-transparent">
-                  <a href="#">Inicio</a>
+              <DropdownMenuContent className="bg-black/80 backdrop-blur-md border border-white/10 rounded-xl mr-2 p-2">
+
+                <DropdownMenuItem
+                  asChild
+                  onClick={handleClose}
+                  className="text-white/80 focus:text-white focus:bg-transparent"
+                >
+                  <Link href="/">Inicio</Link>
                 </DropdownMenuItem>
 
-                <DropdownMenuItem className="text-white bg-transparent focus:bg-transparent">
-                  <a href="#">Servicios</a>
+                <DropdownMenuItem
+                  asChild
+                  onClick={handleClose}
+                  className="text-white/80 focus:text-white focus:bg-transparent"
+                >
+                  <Link href="/servicios">Servicios</Link>
                 </DropdownMenuItem>
 
-                <DropdownMenuItem className="text-white bg-transparent focus:bg-transparent">
-                  <a href="#">Contacto</a>
+                <DropdownMenuItem
+                  asChild
+                  onClick={handleClose}
+                  className="text-white/80 focus:text-white focus:bg-transparent"
+                >
+                  <Link href="/contacto">Contacto</Link>
                 </DropdownMenuItem>
+
               </DropdownMenuContent>
             </DropdownMenu>
           </div>

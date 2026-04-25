@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Header from '../../components/Header';
 
 export const metadata: Metadata = {
   title: 'Contacto - Blanco y Negro Sastrería',
@@ -9,7 +8,6 @@ export const metadata: Metadata = {
 export default function Contacto() {
   return (
     <div className="min-h-screen bg-linear-to-br from-black via-gray-900 to-black relative overflow-hidden">
-      <Header />
       
       <div className="relative z-10 min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-8">
         <div className="text-center space-y-12">

@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Header2 from "../components/Header2";
 
 export const metadata: Metadata = {
   title: "Sastrería en Envigado | Blanco y Negro - Trajes a la Medida",
@@ -27,7 +26,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
-      <Header2 />
+      
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Header from '../../components/Header';
 import ServiceCard from '../../components/ServiceCard';
 
 export const metadata: Metadata = {
@@ -43,7 +42,7 @@ const services = [
 export default function Servicios() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-      <Header />
+      
       
       {/* Patrón de fondo decorativo */}
       <div className="absolute inset-0 opacity-10">
