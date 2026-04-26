@@ -1,3 +1,4 @@
+import HeroWomen from "@/components/Hero";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,8 +26,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      
+    <div className="min-h-full bg-black relative overflow-hidden">
+      <HeroWomen />
     </div>
   );
 }

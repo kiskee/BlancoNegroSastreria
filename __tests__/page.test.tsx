@@ -6,10 +6,10 @@ describe('Home Page', () => {
     expect(() => render(<Home />)).not.toThrow();
   });
 
-  it('has min-h-screen and bg-black styling', () => {
+  it('has min-h-full and bg-black styling', () => {
     const { container } = render(<Home />);
     const mainDiv = container.firstChild;
-    expect(mainDiv).toHaveClass('min-h-screen');
+    expect(mainDiv).toHaveClass('min-h-full');
     expect(mainDiv).toHaveClass('bg-black');
   });
 });

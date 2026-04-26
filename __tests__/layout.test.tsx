@@ -3,12 +3,9 @@ import RootLayout from '../app/layout'
 
 // Mock Next.js font imports
 jest.mock('next/font/google', () => ({
-  Geist: () => ({
-    variable: '--font-geist-sans',
-  }),
-  Geist_Mono: () => ({
-    variable: '--font-geist-mono',
-  }),
+  Geist: () => ({ variable: '--font-geist-sans' }),
+  Geist_Mono: () => ({ variable: '--font-geist-mono' }),
+  Playfair_Display: () => ({ className: 'playfair-display' }),
 }))
 
 // Mock CSS import
