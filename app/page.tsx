@@ -1,4 +1,6 @@
+import AlterationsSection from "@/components/AlterationsSection";
 import HeroWomen from "@/components/Hero";
+import WomenSection from "@/components/WomenSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -28,6 +30,8 @@ export default function Home() {
   return (
     <div className="min-h-full bg-black relative overflow-hidden">
       <HeroWomen />
+      <AlterationsSection />
+      <WomenSection />
     </div>
   );
 }
