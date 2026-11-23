@@ -1,5 +1,7 @@
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { whatsappUrl } from "@/lib/contact"
 import { cn } from "@/lib/utils"
 
 const features = [
@@ -11,7 +13,7 @@ const features = [
 
 export default function WomenSection() {
   return (
-    <section className="relative w-full bg-[#0a0a0a] overflow-hidden">
+    <section id="coleccion" className="relative w-full bg-[#0a0a0a] overflow-hidden">
 
       {/* ─── MOBILE: imagen de fondo ─── */}
       <div className="absolute inset-0 md:hidden">
@@ -44,7 +46,7 @@ export default function WomenSection() {
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent" />
           {/* label sutil sobre la imagen */}
           <span className="absolute bottom-7 left-1/2 -translate-x-1/2 text-[10px] tracking-[.3em] text-purple-300/40 uppercase select-none whitespace-nowrap">
-            colección · otoño 2025
+            colección · 2026
           </span>
         </div>
 
@@ -99,6 +101,7 @@ export default function WomenSection() {
             {/* ── CTA ── */}
             <div className="flex items-center gap-6">
               <Button
+                asChild
                 variant="outline"
                 className={cn(
                   "rounded-sm border-purple-400/50 bg-transparent",
@@ -107,11 +110,16 @@ export default function WomenSection() {
                   "transition-all duration-200"
                 )}
               >
-                Ver colección
+                <Link
+                  href={whatsappUrl(
+                    "Hola, quiero ver la colección de Blanco y Negro Sastrería"
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ver colección
+                </Link>
               </Button>
-              <button className="text-xs text-white/30 hover:text-white/60 transition-colors tracking-wide">
-                Lookbook →
-              </button>
             </div>
 
           </div>

@@ -1,6 +1,0 @@
-__tests__/
-coverage/
-.next/
-node_modules/
-*.config.js
-jest.setup.js

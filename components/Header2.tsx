@@ -77,7 +77,10 @@ export default function Header2() {
           <div className="md:hidden">
             <DropdownMenu open={open} onOpenChange={setOpen}>
               <DropdownMenuTrigger asChild>
-                <button className="text-white/80 hover:text-white transition-colors">
+                <button
+                  aria-label="Abrir menú de navegación"
+                  className="text-white/80 hover:text-white transition-colors"
+                >
                   <Menu size={22} />
                 </button>
               </DropdownMenuTrigger>

@@ -1,5 +1,7 @@
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { whatsappUrl } from "@/lib/contact"
 
 export default function AlterationsSection() {
   return (
@@ -55,16 +57,28 @@ export default function AlterationsSection() {
 
         {/* CTA */}
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          
-          <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-5 shadow-[0_0_20px_rgba(168,85,247,0.4)]">
-            Solicitar arreglo
+
+          <Button
+            asChild
+            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-5 shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+          >
+            <Link
+              href={whatsappUrl(
+                "Hola, quiero solicitar un arreglo en Blanco y Negro Sastrería"
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Solicitar arreglo
+            </Link>
           </Button>
 
           <Button
+            asChild
             variant="outline"
             className="border-white/30 text-white hover:bg-white hover:text-black px-6 py-5"
           >
-            Ver servicios
+            <Link href="/servicios">Ver servicios</Link>
           </Button>
 
         </div>

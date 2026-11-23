@@ -10,11 +10,19 @@ jest.mock('next/image', () => {
   return MockImage
 })
 
-jest.mock('../components/ui/button', () => ({
-  Button: ({ children, variant, ...props }: { children: React.ReactNode; variant?: string }) => (
-    <button data-variant={variant} {...props}>{children}</button>
-  ),
-}))
+jest.mock('next/link', () => {
+  const MockLink = ({
+    children,
+    href,
+    ...props
+  }: { children: React.ReactNode; href: string } & React.ComponentProps<'a'>) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  )
+  MockLink.displayName = 'MockLink'
+  return MockLink
+})
 
 describe('AlterationsSection Component', () => {
   it('renders without crashing', () => {
@@ -50,14 +58,20 @@ describe('AlterationsSection Component', () => {
     expect(screen.getByText('Reparaciones finas')).toBeInTheDocument()
   })
 
-  it('renders both CTA buttons', () => {
+  it('renders both CTA links', () => {
     render(<AlterationsSection />)
-    expect(screen.getByRole('button', { name: 'Solicitar arreglo' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Ver servicios' })).toBeInTheDocument()
+    const solicitar = screen.getByRole('link', { name: 'Solicitar arreglo' })
+    expect(solicitar.getAttribute('href')).toContain('wa.me/573003268025')
+
+    const servicios = screen.getByRole('link', { name: 'Ver servicios' })
+    expect(servicios).toHaveAttribute('href', '/servicios')
   })
 
   it('outline button has correct variant', () => {
     render(<AlterationsSection />)
-    expect(screen.getByRole('button', { name: 'Ver servicios' })).toHaveAttribute('data-variant', 'outline')
+    expect(screen.getByRole('link', { name: 'Ver servicios' })).toHaveAttribute(
+      'data-variant',
+      'outline'
+    )
   })
 })

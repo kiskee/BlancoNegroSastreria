@@ -10,11 +10,19 @@ jest.mock('next/image', () => {
   return MockImage
 })
 
-jest.mock('../components/ui/button', () => ({
-  Button: ({ children, variant, ...props }: { children: React.ReactNode; variant?: string }) => (
-    <button data-variant={variant} {...props}>{children}</button>
-  ),
-}))
+jest.mock('next/link', () => {
+  const MockLink = ({
+    children,
+    href,
+    ...props
+  }: { children: React.ReactNode; href: string } & React.ComponentProps<'a'>) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  )
+  MockLink.displayName = 'MockLink'
+  return MockLink
+})
 
 describe('WomenSection Component', () => {
   it('renders without crashing', () => {
@@ -58,10 +66,10 @@ describe('WomenSection Component', () => {
     expect(screen.getByText('Diseños que hablan por ti')).toBeInTheDocument()
   })
 
-  it('renders the CTA button and lookbook link', () => {
+  it('renders the CTA link pointing to WhatsApp', () => {
     render(<WomenSection />)
-    expect(screen.getByRole('button', { name: 'Ver colección' })).toBeInTheDocument()
-    expect(screen.getByText('Lookbook →')).toBeInTheDocument()
+    const cta = screen.getByRole('link', { name: 'Ver colección' })
+    expect(cta.getAttribute('href')).toContain('wa.me/573003268025')
   })
 
   it('renders feature numbers', () => {

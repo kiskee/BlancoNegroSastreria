@@ -56,4 +56,9 @@ describe('Header2 Component', () => {
     const logoLink = screen.getAllByRole('link').find((l) => l.getAttribute('href') === '/')
     expect(logoLink).toBeDefined()
   })
+
+  it('mobile menu button has an accessible label', () => {
+    render(<Header2 />)
+    expect(screen.getByRole('button', { name: 'Abrir menú de navegación' })).toBeInTheDocument()
+  })
 })
