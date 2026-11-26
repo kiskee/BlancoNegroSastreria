@@ -98,20 +98,47 @@ describe('Contacto Page', () => {
     expect(screen.getByText('300 326 8025')).toBeInTheDocument()
   })
 
-  it('renders location card', () => {
+  it('renders location card with the full address', () => {
     render(<Contacto />)
 
     expect(screen.getByRole('heading', { name: 'Ubicación' })).toBeInTheDocument()
-    expect(screen.getByText('Envigado, Antioquia')).toBeInTheDocument()
+    expect(screen.getAllByText(/Calle 36 Sur # 41-32/).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/Arriba de Las Granjas/).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/Envigado, Antioquia/).length).toBeGreaterThan(0)
   })
 
-  it('all contact links point to WhatsApp', () => {
+  it('renders the Google Maps embed with an accessible title', () => {
+    render(<Contacto />)
+
+    const map = screen.getByTitle('Mapa de ubicación de Blanco y Negro Sastrería')
+    expect(map.tagName).toBe('IFRAME')
+    expect(map.getAttribute('src')).toContain('maps.google.com')
+    expect(map.getAttribute('src')).toContain('output=embed')
+    expect(map.getAttribute('loading')).toBe('lazy')
+    expect(map.getAttribute('referrerpolicy')).toBe('no-referrer-when-downgrade')
+  })
+
+  it('renders directions links pointing to Google Maps', () => {
+    render(<Contacto />)
+
+    const directionsLinks = screen.getAllByRole('link', { name: /Cómo llegar/ })
+    expect(directionsLinks.length).toBeGreaterThan(0)
+    directionsLinks.forEach((link) => {
+      expect(link.getAttribute('href')).toContain('google.com/maps')
+      expect(link).toHaveAttribute('target', '_blank')
+    })
+  })
+
+  it('all contact links point to WhatsApp or Google Maps', () => {
     render(<Contacto />)
 
     const links = screen.getAllByRole('link')
     expect(links.length).toBeGreaterThan(0)
     links.forEach((link) => {
-      expect(link.getAttribute('href')).toContain('wa.me/573003268025')
+      const href = link.getAttribute('href') || ''
+      const isWhatsApp = href.includes('wa.me/573003268025')
+      const isGoogleMaps = href.includes('google.com/maps')
+      expect(isWhatsApp || isGoogleMaps).toBe(true)
     })
   })
 

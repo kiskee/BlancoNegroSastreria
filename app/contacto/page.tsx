@@ -3,7 +3,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin } from 'lucide-react'
 import WhatsAppIcon from '@/components/WhatsAppIcon'
-import { PHONE_DISPLAY, whatsappUrl } from '@/lib/contact'
+import {
+  ADDRESS_CITY,
+  ADDRESS_REFERENCE,
+  ADDRESS_STREET,
+  PHONE_DISPLAY,
+  googleMapsDirectionsUrl,
+  googleMapsEmbedUrl,
+  whatsappUrl,
+} from '@/lib/contact'
 
 export const metadata: Metadata = {
   title: 'Contacto',
@@ -86,9 +94,65 @@ export default function Contacto() {
             <h2 className="text-lg font-medium text-white/90 tracking-wide">
               Ubicación
             </h2>
-            <p className="text-sm text-white/50 font-light">
-              Envigado, Antioquia
+            <p className="text-sm text-white/50 font-light text-center">
+              {ADDRESS_STREET}
+              <br />
+              {ADDRESS_REFERENCE}
+              <br />
+              {ADDRESS_CITY}
             </p>
+            <a
+              href={googleMapsDirectionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 text-sm text-purple-300/80 hover:text-purple-200 underline underline-offset-4 transition-colors duration-200"
+            >
+              Cómo llegar
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── MAPA ─── */}
+      <section className="px-6 md:px-14 pb-20">
+        <div className="max-w-4xl mx-auto">
+          <div className="max-w-md mb-10">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="block w-7 h-px bg-purple-400/60" />
+              <span className="text-[11px] tracking-[.25em] text-purple-300/80 uppercase">
+                Encuéntranos
+              </span>
+            </div>
+            <h2 className="font-serif font-light text-3xl md:text-4xl leading-[1.05] tracking-tight text-white">
+              Estamos en{' '}
+              <span className="text-purple-300/90">el corazón de Envigado.</span>
+            </h2>
+            <p className="mt-4 text-sm md:text-[15px] leading-relaxed text-white/50 font-light max-w-sm">
+              {ADDRESS_STREET} — {ADDRESS_REFERENCE}.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-xl border border-white/10">
+            <iframe
+              src={googleMapsEmbedUrl}
+              title="Mapa de ubicación de Blanco y Negro Sastrería"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-[420px] border-0"
+            />
+          </div>
+
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={googleMapsDirectionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 border border-purple-400/50 bg-transparent text-purple-200/90 px-8 py-4 rounded-lg text-sm tracking-[.15em] uppercase hover:bg-purple-400/10 hover:border-purple-400/80 hover:text-white transition-all duration-200"
+            >
+              <MapPin className="h-5 w-5" strokeWidth={1.5} />
+              <span>Cómo llegar</span>
+            </a>
           </div>
         </div>
       </section>

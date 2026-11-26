@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Header2 from '@/components/Header2'
+import { ADDRESS_STREET, googleMapsDirectionsUrl } from '@/lib/contact'
 import { Playfair_Display } from 'next/font/google'
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
@@ -76,10 +77,12 @@ const jsonLd = {
       telephone: '+573003268025',
       address: {
         '@type': 'PostalAddress',
+        streetAddress: ADDRESS_STREET,
         addressLocality: 'Envigado',
         addressRegion: 'Antioquia',
         addressCountry: 'CO',
       },
+      hasMap: googleMapsDirectionsUrl,
       areaServed: 'Envigado, Antioquia',
       inLanguage: 'es-CO',
     },
